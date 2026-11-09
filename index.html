@@ -1,64 +1,108 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURAWEAR | Streetwear</title>
+<title>AURAWEAR | Official Store</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#111}
-header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
-.logo{font-size:25px;font-weight:900;letter-spacing:4px}
-header a{color:#111;text-decoration:none;font-size:13px}
-.hero{padding:65px 7%;text-align:center;background:#f5f5f5}
-.hero h1{font-size:48px;letter-spacing:5px;margin:0}
-.hero p{color:#666;letter-spacing:2px}
-.product{max-width:1000px;margin:55px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:35px}
-.product img{width:100%;background:#eee}
-.details{padding:15px 0}
-.details h2{font-size:30px}
-.price{font-size:22px;font-weight:bold}
-select,button{width:100%;padding:15px;margin-top:15px;font-size:15px}
-button{background:#111;color:white;border:0;font-weight:bold}
-footer{text-align:center;background:#111;color:white;padding:30px}
-@media(max-width:650px){.product{grid-template-columns:1fr}.hero h1{font-size:34px}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff;color:#111}
+header{height:75px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
+.logo{font-size:25px;font-weight:900;letter-spacing:5px}
+header a{color:#111;text-decoration:none;font-size:12px;letter-spacing:2px}
+.hero{text-align:center;padding:85px 15px;background:#f5f5f5}
+.hero small{letter-spacing:4px;color:#555}
+.hero h1{font-size:clamp(40px,8vw,75px);margin:20px 0;letter-spacing:4px}
+.hero p{color:#666;font-size:14px}
+.shop{padding:60px 7%}
+.heading{text-align:center;margin-bottom:40px}
+.heading h2{font-size:28px;letter-spacing:4px}
+.heading p{font-size:12px;color:#777;margin-top:10px;letter-spacing:2px}
+.product{max-width:950px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.product img{width:100%;background:#eee;display:block}
+.details small{letter-spacing:3px;color:#777}
+.details h2{font-size:32px;margin:18px 0}
+.price{font-size:23px;font-weight:bold;margin:18px 0}
+.description{color:#666;line-height:1.8;font-size:14px}
+label{display:block;margin-top:25px;font-size:12px;font-weight:bold}
+select{width:100%;padding:15px;margin-top:10px;border:1px solid #ccc;background:white}
+button{width:100%;padding:17px;background:#111;color:white;border:0;margin-top:15px;font-weight:bold;letter-spacing:2px}
+button:hover{background:#333}
+.note{text-align:center;color:#777;font-size:11px;margin-top:15px}
+.banner{text-align:center;background:#111;color:white;padding:55px 15px}
+.banner h2{letter-spacing:5px;font-size:28px}
+.banner p{color:#bbb;font-size:12px;margin-top:12px;letter-spacing:2px}
+footer{text-align:center;padding:25px;font-size:11px;color:#777}
+@media(max-width:650px){
+.product{grid-template-columns:1fr;gap:25px}
+.shop{padding:40px 6%}
+.hero{padding:65px 15px}
+}
 </style>
 </head>
 <body>
+
 <header>
 <div class="logo">AURAWEAR</div>
-<a href="#product">SHOP</a>
+<a href="#shop">SHOP ↗</a>
 </header>
+
 <section class="hero">
+<small>WELCOME TO AURAWEAR</small>
 <h1>OWN YOUR STYLE.</h1>
-<p>STREETWEAR FOR THE NEXT GENERATION</p>
+<p>Streetwear for the next generation.</p>
 </section>
-<section class="product" id="product">
-<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900" alt="Black streetwear hoodie">
+
+<section class="shop" id="shop">
+<div class="heading">
+<h2>THE FIRST DROP</h2>
+<p>NEW SEASON · NEW IDENTITY</p>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1000" alt="Streetwear hoodie">
 <div class="details">
-<p>AURAWEAR COLLECTION</p>
+<small>AURAWEAR ORIGINALS</small>
 <h2>Spider Zip Hoodie</h2>
-<p class="price">Rs. 3,500</p>
-<p>Premium streetwear. Make your own statement.</p>
-<label>Select Size</label>
+<div class="price">Rs. 3,500</div>
+<p class="description">Your first step into the AURAWEAR world. A streetwear essential made to stand out.</p>
+
+<label for="size">SELECT YOUR SIZE</label>
 <select id="size">
-<option value="">Choose your size</option>
-<option>S</option><option>M</option><option>L</option><option>XL</option>
+<option value="">Choose size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
 </select>
+
 <button onclick="order()">ORDER NOW</button>
+<p class="note">FIRST DROP · LIMITED STOCK</p>
+</div>
 </div>
 </section>
-<footer>
+
+<section class="banner">
 <h2>AURAWEAR</h2>
 <p>WEAR YOUR IDENTITY.</p>
+</section>
+
+<footer>
+© 2026 AURAWEAR · ALL RIGHTS RESERVED
 </footer>
+
 <script>
 function order(){
-let size=document.getElementById('size').value;
-if(!size){alert('Please select your size');return;}
-let msg='Hi AURAWEAR! I want to order Spider Zip Hoodie. Size: '+size+'. Price: Rs. 3500.';
-window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+const size=document.getElementById('size').value;
+if(!size){
+alert('Please select your size');
+return;
+}
+const message='Hi AURAWEAR! I want to order Spider Zip Hoodie. Size: '+size+'. Price: Rs. 3500.';
+window.open('https://wa.me/?text='+encodeURIComponent(message),'_blank');
 }
 </script>
+
 </body>
 </html>
