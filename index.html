@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURAWEAR | Streetwear</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#111}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
+.logo{font-size:25px;font-weight:900;letter-spacing:4px}
+header a{color:#111;text-decoration:none;font-size:13px}
+.hero{padding:65px 7%;text-align:center;background:#f5f5f5}
+.hero h1{font-size:48px;letter-spacing:5px;margin:0}
+.hero p{color:#666;letter-spacing:2px}
+.product{max-width:1000px;margin:55px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.product img{width:100%;background:#eee}
+.details{padding:15px 0}
+.details h2{font-size:30px}
+.price{font-size:22px;font-weight:bold}
+select,button{width:100%;padding:15px;margin-top:15px;font-size:15px}
+button{background:#111;color:white;border:0;font-weight:bold}
+footer{text-align:center;background:#111;color:white;padding:30px}
+@media(max-width:650px){.product{grid-template-columns:1fr}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">AURAWEAR</div>
+<a href="#product">SHOP</a>
+</header>
+<section class="hero">
+<h1>OWN YOUR STYLE.</h1>
+<p>STREETWEAR FOR THE NEXT GENERATION</p>
+</section>
+<section class="product" id="product">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900" alt="Black streetwear hoodie">
+<div class="details">
+<p>AURAWEAR COLLECTION</p>
+<h2>Spider Zip Hoodie</h2>
+<p class="price">Rs. 3,500</p>
+<p>Premium streetwear. Make your own statement.</p>
+<label>Select Size</label>
+<select id="size">
+<option value="">Choose your size</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
+</select>
+<button onclick="order()">ORDER NOW</button>
+</div>
+</section>
+<footer>
+<h2>AURAWEAR</h2>
+<p>WEAR YOUR IDENTITY.</p>
+</footer>
+<script>
+function order(){
+let size=document.getElementById('size').value;
+if(!size){alert('Please select your size');return;}
+let msg='Hi AURAWEAR! I want to order Spider Zip Hoodie. Size: '+size+'. Price: Rs. 3500.';
+window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
