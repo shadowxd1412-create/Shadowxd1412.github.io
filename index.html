@@ -4,105 +4,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURAWEAR | Official Store</title>
+<title>AURAWEAR | Luxury Streetwear</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#fff;color:#111}
-header{height:75px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
-.logo{font-size:25px;font-weight:900;letter-spacing:5px}
-header a{color:#111;text-decoration:none;font-size:12px;letter-spacing:2px}
-.hero{text-align:center;padding:85px 15px;background:#f5f5f5}
-.hero small{letter-spacing:4px;color:#555}
-.hero h1{font-size:clamp(40px,8vw,75px);margin:20px 0;letter-spacing:4px}
-.hero p{color:#666;font-size:14px}
-.shop{padding:60px 7%}
-.heading{text-align:center;margin-bottom:40px}
-.heading h2{font-size:28px;letter-spacing:4px}
-.heading p{font-size:12px;color:#777;margin-top:10px;letter-spacing:2px}
-.product{max-width:950px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
-.product img{width:100%;background:#eee;display:block}
-.details small{letter-spacing:3px;color:#777}
-.details h2{font-size:32px;margin:18px 0}
-.price{font-size:23px;font-weight:bold;margin:18px 0}
-.description{color:#666;line-height:1.8;font-size:14px}
-label{display:block;margin-top:25px;font-size:12px;font-weight:bold}
-select{width:100%;padding:15px;margin-top:10px;border:1px solid #ccc;background:white}
-button{width:100%;padding:17px;background:#111;color:white;border:0;margin-top:15px;font-weight:bold;letter-spacing:2px}
-button:hover{background:#333}
-.note{text-align:center;color:#777;font-size:11px;margin-top:15px}
-.banner{text-align:center;background:#111;color:white;padding:55px 15px}
-.banner h2{letter-spacing:5px;font-size:28px}
-.banner p{color:#bbb;font-size:12px;margin-top:12px;letter-spacing:2px}
-footer{text-align:center;padding:25px;font-size:11px;color:#777}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{--red:#d00020;--black:#080808;--white:#f5f5f5}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Inter,Arial,sans-serif}
+button,a{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+/* LOADING SCREEN */
+#loader{position:fixed;inset:0;background:#080808;z-index:9999;
+display:flex;align-items:center;justify-content:center;flex-direction:column;
+transition:opacity .6s,visibility .6s}
+#loader h1{font-family:Oswald;font-size:48px;letter-spacing:10px}
+#loader h1 span{color:var(--red)}
+.loader-line{width:130px;height:2px;background:#333;margin-top:25px;overflow:hidden}
+.loader-line:after{content:"";display:block;height:100%;width:40%;
+background:var(--red);animation:loading 1s infinite}
+@keyframes loading{from{transform:translateX(-100%)}to{transform:translateX(350%)}}
+#loader.hide{opacity:0;visibility:hidden}
+
+/* HEADER */
+header{height:82px;padding:0 7%;display:flex;align-items:center;
+justify-content:space-between;border-bottom:1px solid #242424;
+position:sticky;top:0;background:rgba(8,8,8,.95);z-index:100}
+.logo{font-family:Oswald;font-size:29px;font-weight:700;letter-spacing:5px}
+.logo span{color:var(--red)}
+nav{display:flex;gap:32px;font-size:11px;letter-spacing:2px}
+nav a:hover{color:var(--red)}
+.cart-button{background:transparent;color:white;border:1px solid #555;
+padding:11px 17px;font-size:11px;letter-spacing:1px}
+.cart-button span{color:var(--red);font-weight:bold}
+
+/* HERO */
+.hero{min-height:570px;display:flex;align-items:center;padding:70px 9%;
+background:linear-gradient(90deg,#080808 15%,rgba(8,8,8,.85) 48%,rgba(8,8,8,.2)),
+url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1800')
+center/cover}
+.hero-content{max-width:650px}
+.eyebrow{font-size:11px;letter-spacing:5px;color:#e2e2e2}
+.hero h1{font-family:Oswald;font-size:clamp(65px,10vw,115px);
+line-height:.98;margin:25px 0;text-transform:uppercase}
+.hero h1 span{color:var(--red)}
+.hero p{color:#bbb;font-size:14px;line-height:1.8;max-width:420px}
+.primary-btn{display:inline-block;background:var(--red);color:white;
+border:0;padding:17px 30px;margin-top:30px;font-size:11px;
+font-weight:800;letter-spacing:2px;transition:.3s}
+.primary-btn:hover{background:#a90019;transform:translateY(-3px)}
+
+/* COLLECTION */
+.collection{padding:85px 8%}
+.section-top{text-align:center;margin-bottom:45px}
+.section-top small{color:var(--red);letter-spacing:4px;font-size:10px}
+.section-top h2{font-family:Oswald;font-size:45px;letter-spacing:3px;margin-top:12px}
+.section-top p{font-size:12px;color:#888;margin-top:10px}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;max-width:950px;margin:auto}
+.product-card{background:#111;border:1px solid #252525;overflow:hidden;transition:.3s}
+.product-card:hover{border-color:var(--red);transform:translateY(-5px)}
+.product-image{height:390px;background:#171717;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.product-card:hover img{transform:scale(1.04)}
+.product-info{padding:23px}
+.product-info small{font-size:10px;letter-spacing:3px;color:var(--red)}
+.product-info h3{font-family:Oswald;font-size:25px;margin:10px 0}
+.price{font-weight:700;font-size:17px}
+.product-info select{width:100%;padding:14px;background:#090909;
+border:1px solid #444;color:white;margin-top:18px}
+.add-btn{width:100%;padding:16px;background:var(--red);color:white;
+border:0;font-weight:800;letter-spacing:2px;margin-top:12px}
+.add-btn:hover{background:#a90019}
+
+/* BRAND STRIP */
+.brand-strip{text-align:center;background:#bd001c;padding:40px 15px}
+.brand-strip h2{font-family:Oswald;font-size:35px;letter-spacing:6px}
+.brand-strip p{font-size:10px;letter-spacing:4px;margin-top:10px}
+
+/* FOOTER */
+footer{padding:45px 7%;text-align:center;background:#050505}
+footer h2{font-family:Oswald;font-size:30px;letter-spacing:6px}
+footer h2 span{color:var(--red)}
+footer p{font-size:10px;color:#777;letter-spacing:2px;margin-top:14px}
+
+/* CART DRAWER */
+.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:500}
+.overlay.show{display:block}
+.drawer{position:absolute;right:0;top:0;height:100%;width:min(420px,100%);
+background:#101010;padding:28px;overflow:auto;border-left:1px solid #333}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;
+border-bottom:1px solid #333;padding-bottom:20px}
+.drawer h2{font-family:Oswald;letter-spacing:2px}
+.close{background:none;border:0;color:white;font-size:26px}
+.cart-item{padding:22px 0;border-bottom:1px solid #333;line-height:1.8;font-size:13px}
+.cart-item button{background:none;border:0;color:var(--red);margin-left:10px}
+.cart-total{display:flex;justify-content:space-between;margin-top:25px;font-weight:bold}
+.checkout-btn{width:100%;padding:16px;background:var(--red);color:white;
+border:0;margin-top:22px;font-weight:bold;letter-spacing:2px}
+.empty{color:#888;margin-top:30px;font-size:13px}
+
+/* CHECKOUT */
+.modal{display:none;position:fixed;inset:0;background:#000d;z-index:600;
+align-items:center;justify-content:center;padding:15px}
+.modal.show{display:flex}
+.modal-box{background:#111;border:1px solid #444;padding:28px;width:min(440px,100%)}
+.modal-box h2{font-family:Oswald;letter-spacing:3px;margin-bottom:20px}
+.modal-box input{width:100%;padding:14px;margin:8px 0;background:#080808;
+border:1px solid #444;color:white}
+.modal-box button{width:100%;padding:15px;margin-top:12px;
+background:var(--red);border:0;color:white;font-weight:bold}
+.modal-box .cancel{background:#333}
 @media(max-width:650px){
-.product{grid-template-columns:1fr;gap:25px}
-.shop{padding:40px 6%}
-.hero{padding:65px 15px}
+header{padding:0 5%;height:70px}
+.logo{font-size:23px}
+nav{gap:12px;font-size:9px}
+.hero{min-height:490px;padding:55px 7%}
+.collection{padding:65px 5%}
+.product-grid{grid-template-columns:1fr}
+.product-image{height:390px}
+.section-top h2{font-size:36px}
 }
 </style>
 </head>
 <body>
 
+<div id="loader">
+<h1>AURA<span>WEAR</span></h1>
+<div class="loader-line"></div>
+</div>
+
 <header>
-<div class="logo">AURAWEAR</div>
-<a href="#shop">SHOP ↗</a>
+<a class="logo" href="#">AURA<span>WEAR</span></a>
+<nav>
+<a href="#">HOME</a>
+<a href="#shop">SHOP</a>
+</nav>
+<button class="cart-button" onclick="openCart()">BAG <span id="cart-count">0</span></button>
 </header>
 
 <section class="hero">
-<small>WELCOME TO AURAWEAR</small>
-<h1>OWN YOUR STYLE.</h1>
-<p>Streetwear for the next generation.</p>
+<div class="hero-content">
+<div class="eyebrow">THE STREETWEAR EXPERIENCE</div>
+<h1>OWN YOUR<br><span>IDENTITY.</span></h1>
+<p>Not made to fit in. Made to stand out. Discover the first AURAWEAR collection.</p>
+<a href="#shop" class="primary-btn">EXPLORE COLLECTION ↗</a>
+</div>
 </section>
 
-<section class="shop" id="shop">
-<div class="heading">
-<h2>THE FIRST DROP</h2>
-<p>NEW SEASON · NEW IDENTITY</p>
+<section class="collection" id="shop">
+<div class="section-top">
+<small>THE FIRST DROP</small>
+<h2>FEATURED COLLECTION</h2>
+<p>INTRODUCING AURAWEAR ORIGINALS</p>
 </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1000" alt="Streetwear hoodie">
-<div class="details">
+<div class="product-grid">
+<div class="product-card">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900" alt="Streetwear hoodie">
+</div>
+<div class="product-info">
 <small>AURAWEAR ORIGINALS</small>
-<h2>Spider Zip Hoodie</h2>
+<h3>SPIDER ZIP HOODIE</h3>
 <div class="price">Rs. 3,500</div>
-<p class="description">Your first step into the AURAWEAR world. A streetwear essential made to stand out.</p>
-
-<label for="size">SELECT YOUR SIZE</label>
 <select id="size">
-<option value="">Choose size</option>
+<option value="">SELECT SIZE</option>
 <option>S</option>
 <option>M</option>
 <option>L</option>
 <option>XL</option>
 </select>
-
-<button onclick="order()">ORDER NOW</button>
-<p class="note">FIRST DROP · LIMITED STOCK</p>
+<button class="add-btn" onclick="addToCart()">ADD TO CART +</button>
+</div>
 </div>
 </div>
 </section>
 
-<section class="banner">
+<section class="brand-strip">
 <h2>AURAWEAR</h2>
-<p>WEAR YOUR IDENTITY.</p>
+<p>WEAR YOUR IDENTITY · DEFINE YOUR AURA</p>
 </section>
 
 <footer>
-© 2026 AURAWEAR · ALL RIGHTS RESERVED
+<h2>AURA<span>WEAR</span></h2>
+<p>PREMIUM STREETWEAR · EST. 2026</p>
+<p>© AURAWEAR. ALL RIGHTS RESERVED.</p>
 </footer>
 
+<!-- CART -->
+<div class="overlay" id="cart">
+<div class="drawer">
+<div class="drawer-head">
+<h2>YOUR BAG</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+<div id="cart-items"><p class="empty">Your bag is empty.</p></div>
+<div class="cart-total"><span>TOTAL</span><span id="total">Rs. 0</span></div>
+<button class="checkout-btn" onclick="openCheckout()">PROCEED TO CHECKOUT</button>
+</div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="modal" id="checkout">
+<div class="modal-box">
+<h2>CHECKOUT</h2>
+<p id="checkout-summary" style="font-size:13px;color:#aaa;margin-bottom:15px"></p>
+<input id="customer-name" placeholder="Your name">
+<input id="customer-phone" placeholder="Your phone number">
+<input id="customer-address" placeholder="Delivery address">
+<button onclick="sendOrder()">ORDER ON WHATSAPP</button>
+<button class="cancel" onclick="closeCheckout()">CANCEL</button>
+</div>
+</div>
+
 <script>
-function order(){
-const size=document.getElementById('size').value;
-if(!size){
-alert('Please select your size');
+// Add your WhatsApp number with country code, without + sign.
+const WHATSAPP_NUMBER = "92XXXXXXXXXX";
+const PRICE = 3500;
+let cart = [];
+
+window.addEventListener("load",()=>{
+setTimeout(()=>document.getElementById("loader").classList.add("hide"),1200);
+});
+
+function addToCart(){
+const size=document.getElementById("size").value;
+if(!size){alert("Please select your size.");return;}
+cart.push({name:"Spider Zip Hoodie",size:size,price:PRICE});
+document.getElementById("size").value="";
+updateCart();
+openCart();
+}
+
+function updateCart(){
+document.getElementById("cart-count").textContent=cart.length;
+document.getElementById("total").textContent="Rs. "+(cart.length*PRICE).toLocaleString("en-PK");
+const area=document.getElementById("cart-items");
+if(!cart.length){area.innerHTML='<p class="empty">Your bag is empty.</p>';return;}
+area.innerHTML=cart.map((item,i)=>`
+<div class="cart-item">
+<strong>${item.name}</strong><br>
+Size: ${item.size} · Rs. ${item.price.toLocaleString("en-PK")}
+<button onclick="removeItem(${i})">REMOVE</button>
+</div>`).join("");
+}
+
+function removeItem(i){cart.splice(i,1);updateCart();}
+function openCart(){document.getElementById("cart").classList.add("show");}
+function closeCart(){document.getElementById("cart").classList.remove("show");}
+function openCheckout(){
+if(!cart.length){alert("Your bag is empty.");return;}
+document.getElementById("checkout-summary").textContent=
+cart.length+" item(s) · Total Rs. "+(cart.length*PRICE).toLocaleString("en-PK");
+closeCart();
+document.getElementById("checkout").classList.add("show");
+}
+function closeCheckout(){document.getElementById("checkout").classList.remove("show");}
+
+function sendOrder(){
+const name=document.getElementById("customer-name").value.trim();
+const phone=document.getElementById("customer-phone").value.trim();
+const address=document.getElementById("customer-address").value.trim();
+if(!name||!phone||!address){alert("Please complete all checkout fields.");return;}
+if(WHATSAPP_NUMBER.includes("X")){
+alert("WhatsApp number abhi website code mein add nahi hua. Number add karne ke baad orders receive honge.");
 return;
 }
-const message='Hi AURAWEAR! I want to order Spider Zip Hoodie. Size: '+size+'. Price: Rs. 3500.';
-window.open('https://wa.me/?text='+encodeURIComponent(message),'_blank');
+let lines=cart.map(x=>x.name+" - Size "+x.size+" - Rs. "+x.price).join("\n");
+let message="AURAWEAR ORDER\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\n\n"+lines+"\nTotal: Rs. "+(cart.length*PRICE);
+window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
 }
 </script>
-
 </body>
 </html>
