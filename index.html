@@ -76,15 +76,63 @@ nav a:hover{color:#ff2638}
 .hero{min-height:calc(100svh - 75px);position:relative;display:flex;justify-content:center;align-items:center;overflow:hidden;isolation:isolate}
 
 /* SMOKE */
-.smoke{position:absolute;width:700px;height:550px;border-radius:50%;background:radial-gradient(ellipse,rgba(170,175,185,.20),rgba(110,10,25,.25) 40%,transparent 72%);filter:blur(65px);z-index:-3;pointer-events:none;animation:smokeFlow 12s ease-in-out infinite alternate}
-.smoke.two{width:600px;height:450px;background:radial-gradient(ellipse,rgba(255,20,45,.25),rgba(110,10,25,.12) 45%,transparent 72%);animation-delay:-5s;animation-duration:15s}
-.smoke.three{width:450px;height:400px;background:radial-gradient(ellipse,rgba(210,215,225,.16),transparent 70%);animation-delay:-3s;animation-duration:10s}
-@keyframes smokeFlow{
- 0%{transform:translate(-120px,70px) scale(.8) rotate(-10deg);opacity:.3}
- 50%{transform:translate(90px,-40px) scale(1.2) rotate(10deg);opacity:.85}
- 100%{transform:translate(-20px,50px) scale(1) rotate(-5deg);opacity:.5}
+
+.smoke{
+ position:absolute;
+ width:800px;
+ height:650px;
+ border-radius:50%;
+ background:
+ radial-gradient(ellipse at 30% 50%,
+ rgba(200,205,215,.24),
+ rgba(130,10,30,.32) 35%,
+ rgba(165,9,32,.18) 55%,
+ transparent 75%);
+ filter:blur(55px);
+ opacity:.8;
+ z-index:-3;
+ pointer-events:none;
+ animation:smokeFlow 8s ease-in-out infinite alternate;
 }
 
+.smoke.two{
+ width:650px;
+ height:550px;
+ background:
+ radial-gradient(ellipse,
+ rgba(165,9,32,.35),
+ rgba(80,0,15,.25) 45%,
+ transparent 75%);
+ animation-delay:-4s;
+ animation-duration:11s;
+}
+
+.smoke.three{
+ width:500px;
+ height:450px;
+ background:
+ radial-gradient(ellipse,
+ rgba(220,220,230,.22),
+ transparent 70%);
+ animation-delay:-2s;
+ animation-duration:9s;
+}
+
+@keyframes smokeFlow{
+ 0%{
+ transform:translate(-130px,70px) scale(.75) rotate(-12deg);
+ opacity:.25;
+ }
+ 50%{
+ transform:translate(100px,-45px) scale(1.25) rotate(12deg);
+ opacity:.9;
+ }
+ 100%{
+ transform:translate(-20px,65px) scale(1) rotate(-5deg);
+ opacity:.55;
+ }
+}
+ 
 /* BACKGROUND BRAND TEXT */
 .brand-back{position:absolute;top:43%;left:50%;transform:translate(-50%,-50%);width:100%;text-align:center;font-family:Orbitron;font-size:clamp(60px,13vw,180px);font-weight:900;letter-spacing:-5px;white-space:nowrap;background:linear-gradient(180deg,#fff,#92969e 30%,#f5f5f5 48%,#777b82 70%,#eee);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:.75;z-index:-1;pointer-events:none}
 
