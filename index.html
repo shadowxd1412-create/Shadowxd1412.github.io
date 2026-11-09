@@ -4,277 +4,323 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AURAWEAR | Luxury Streetwear</title>
+<title>AURAWEAR | Move Different</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;600;700&display=swap');
 
-:root{--red:#d00020;--black:#080808;--white:#f5f5f5}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--white);font-family:Inter,Arial,sans-serif}
-button,a{cursor:pointer}
-a{text-decoration:none;color:inherit}
 
-/* LOADING SCREEN */
-#loader{position:fixed;inset:0;background:#080808;z-index:9999;
-display:flex;align-items:center;justify-content:center;flex-direction:column;
-transition:opacity .6s,visibility .6s}
-#loader h1{font-family:Oswald;font-size:48px;letter-spacing:10px}
-#loader h1 span{color:var(--red)}
-.loader-line{width:130px;height:2px;background:#333;margin-top:25px;overflow:hidden}
-.loader-line:after{content:"";display:block;height:100%;width:40%;
-background:var(--red);animation:loading 1s infinite}
-@keyframes loading{from{transform:translateX(-100%)}to{transform:translateX(350%)}}
-#loader.hide{opacity:0;visibility:hidden}
+body{
+ background:#080808;
+ color:white;
+ font-family:'Space Grotesk',sans-serif;
+ overflow-x:hidden;
+}
 
-/* HEADER */
-header{height:82px;padding:0 7%;display:flex;align-items:center;
-justify-content:space-between;border-bottom:1px solid #242424;
-position:sticky;top:0;background:rgba(8,8,8,.95);z-index:100}
-.logo{font-family:Oswald;font-size:29px;font-weight:700;letter-spacing:5px}
-.logo span{color:var(--red)}
-nav{display:flex;gap:32px;font-size:11px;letter-spacing:2px}
-nav a:hover{color:var(--red)}
-.cart-button{background:transparent;color:white;border:1px solid #555;
-padding:11px 17px;font-size:11px;letter-spacing:1px}
-.cart-button span{color:var(--red);font-weight:bold}
+header{
+ height:75px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:0 7%;
+ border-bottom:1px solid #222;
+}
 
-/* HERO */
-.hero{min-height:570px;display:flex;align-items:center;padding:70px 9%;
-background:linear-gradient(90deg,#080808 15%,rgba(8,8,8,.85) 48%,rgba(8,8,8,.2)),
-url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1800')
-center/cover}
-.hero-content{max-width:650px}
-.eyebrow{font-size:11px;letter-spacing:5px;color:#e2e2e2}
-.hero h1{font-family:Oswald;font-size:clamp(65px,10vw,115px);
-line-height:.98;margin:25px 0;text-transform:uppercase}
-.hero h1 span{color:var(--red)}
-.hero p{color:#bbb;font-size:14px;line-height:1.8;max-width:420px}
-.primary-btn{display:inline-block;background:var(--red);color:white;
-border:0;padding:17px 30px;margin-top:30px;font-size:11px;
-font-weight:800;letter-spacing:2px;transition:.3s}
-.primary-btn:hover{background:#a90019;transform:translateY(-3px)}
+.logo{
+ font-family:Orbitron;
+ font-size:23px;
+ font-weight:900;
+ letter-spacing:3px;
+ text-shadow:0 0 20px red;
+}
 
-/* COLLECTION */
-.collection{padding:85px 8%}
-.section-top{text-align:center;margin-bottom:45px}
-.section-top small{color:var(--red);letter-spacing:4px;font-size:10px}
-.section-top h2{font-family:Oswald;font-size:45px;letter-spacing:3px;margin-top:12px}
-.section-top p{font-size:12px;color:#888;margin-top:10px}
-.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;max-width:950px;margin:auto}
-.product-card{background:#111;border:1px solid #252525;overflow:hidden;transition:.3s}
-.product-card:hover{border-color:var(--red);transform:translateY(-5px)}
-.product-image{height:390px;background:#171717;overflow:hidden}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:.5s}
-.product-card:hover img{transform:scale(1.04)}
-.product-info{padding:23px}
-.product-info small{font-size:10px;letter-spacing:3px;color:var(--red)}
-.product-info h3{font-family:Oswald;font-size:25px;margin:10px 0}
-.price{font-weight:700;font-size:17px}
-.product-info select{width:100%;padding:14px;background:#090909;
-border:1px solid #444;color:white;margin-top:18px}
-.add-btn{width:100%;padding:16px;background:var(--red);color:white;
-border:0;font-weight:800;letter-spacing:2px;margin-top:12px}
-.add-btn:hover{background:#a90019}
+.logo span{color:#ff2638}
 
-/* BRAND STRIP */
-.brand-strip{text-align:center;background:#bd001c;padding:40px 15px}
-.brand-strip h2{font-family:Oswald;font-size:35px;letter-spacing:6px}
-.brand-strip p{font-size:10px;letter-spacing:4px;margin-top:10px}
+nav a{
+ color:white;
+ text-decoration:none;
+ margin-left:20px;
+ font-size:12px;
+ letter-spacing:2px;
+}
 
-/* FOOTER */
-footer{padding:45px 7%;text-align:center;background:#050505}
-footer h2{font-family:Oswald;font-size:30px;letter-spacing:6px}
-footer h2 span{color:var(--red)}
-footer p{font-size:10px;color:#777;letter-spacing:2px;margin-top:14px}
+.hero{
+ min-height:90vh;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ padding:6%;
+ position:relative;
+}
 
-/* CART DRAWER */
-.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:500}
-.overlay.show{display:block}
-.drawer{position:absolute;right:0;top:0;height:100%;width:min(420px,100%);
-background:#101010;padding:28px;overflow:auto;border-left:1px solid #333}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;
-border-bottom:1px solid #333;padding-bottom:20px}
-.drawer h2{font-family:Oswald;letter-spacing:2px}
-.close{background:none;border:0;color:white;font-size:26px}
-.cart-item{padding:22px 0;border-bottom:1px solid #333;line-height:1.8;font-size:13px}
-.cart-item button{background:none;border:0;color:var(--red);margin-left:10px}
-.cart-total{display:flex;justify-content:space-between;margin-top:25px;font-weight:bold}
-.checkout-btn{width:100%;padding:16px;background:var(--red);color:white;
-border:0;margin-top:22px;font-weight:bold;letter-spacing:2px}
-.empty{color:#888;margin-top:30px;font-size:13px}
+.hero:before{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ background:#ff2638;
+ filter:blur(160px);
+ opacity:.2;
+ right:10%;
+ z-index:-1;
+}
 
-/* CHECKOUT */
-.modal{display:none;position:fixed;inset:0;background:#000d;z-index:600;
-align-items:center;justify-content:center;padding:15px}
-.modal.show{display:flex}
-.modal-box{background:#111;border:1px solid #444;padding:28px;width:min(440px,100%)}
-.modal-box h2{font-family:Oswald;letter-spacing:3px;margin-bottom:20px}
-.modal-box input{width:100%;padding:14px;margin:8px 0;background:#080808;
-border:1px solid #444;color:white}
-.modal-box button{width:100%;padding:15px;margin-top:12px;
-background:var(--red);border:0;color:white;font-weight:bold}
-.modal-box .cancel{background:#333}
-@media(max-width:650px){
-header{padding:0 5%;height:70px}
-.logo{font-size:23px}
-nav{gap:12px;font-size:9px}
-.hero{min-height:490px;padding:55px 7%}
-.collection{padding:65px 5%}
-.product-grid{grid-template-columns:1fr}
-.product-image{height:390px}
-.section-top h2{font-size:36px}
+.tag{
+ color:#ff2638;
+ letter-spacing:5px;
+ font-size:11px;
+ margin-bottom:25px;
+}
+
+h1{
+ font-family:Orbitron;
+ font-size:clamp(48px,7vw,95px);
+ line-height:1.05;
+}
+
+h1 span{
+ color:#ff2638;
+ text-shadow:0 0 30px #ff263855;
+}
+
+.description{
+ color:#999;
+ line-height:1.8;
+ max-width:400px;
+ margin:25px 0;
+}
+
+.btn{
+ display:inline-block;
+ padding:16px 25px;
+ background:#ff2638;
+ color:white;
+ text-decoration:none;
+ font-weight:bold;
+ letter-spacing:2px;
+ box-shadow:0 0 25px #ff263855;
+ transition:.3s;
+}
+
+.btn:hover{
+ transform:translateY(-5px);
+ box-shadow:0 0 40px red;
+}
+
+.visual{
+ height:550px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ perspective:1000px;
+}
+
+.hoodie{
+ width:100%;
+ height:100%;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ transition:transform .2s ease;
+}
+
+.hoodie img{
+ max-width:100%;
+ max-height:100%;
+ object-fit:contain;
+ filter:drop-shadow(0 20px 35px #000);
+}
+
+.placeholder{
+ width:85%;
+ height:85%;
+ border:1px solid #333;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background:linear-gradient(145deg,#222,#080808);
+ font-family:Orbitron;
+ font-size:60px;
+ color:#ff2638;
+}
+
+.orbit{
+ position:absolute;
+ width:380px;
+ height:380px;
+ border:1px solid #ff263855;
+ border-radius:50%;
+ animation:rotate 15s linear infinite;
+ pointer-events:none;
+}
+
+@keyframes rotate{
+ to{transform:rotate(360deg)}
+}
+
+.marquee{
+ padding:25px 0;
+ border-top:1px solid #222;
+ border-bottom:1px solid #222;
+ overflow:hidden;
+ white-space:nowrap;
+ color:#ff2638;
+ font-family:Orbitron;
+ letter-spacing:5px;
+}
+
+.marquee span{
+ display:inline-block;
+ animation:scroll 20s linear infinite;
+}
+
+@keyframes scroll{
+ to{transform:translateX(-50%)}
+}
+
+.about{
+ padding:100px 8%;
+}
+
+.about h2{
+ font-family:Orbitron;
+ font-size:40px;
+ margin:20px 0;
+}
+
+.about p{
+ color:#999;
+ line-height:1.8;
+ max-width:550px;
+}
+
+footer{
+ padding:35px 8%;
+ border-top:1px solid #222;
+ display:flex;
+ justify-content:space-between;
+ color:#777;
+ font-size:12px;
+}
+
+@media(max-width:700px){
+ header{padding:0 5%}
+ .logo{font-size:17px}
+ nav a{font-size:9px;margin-left:10px}
+ .hero{
+  grid-template-columns:1fr;
+  padding:35px 7%;
+ }
+ .visual{
+  height:370px;
+  grid-row:1;
+ }
+ .hero-text{grid-row:2}
+ h1{font-size:52px}
+ .orbit{width:270px;height:270px}
+ .about{padding:70px 7%}
+ .about h2{font-size:28px}
+ footer{font-size:10px}
 }
 </style>
 </head>
+
 <body>
 
-<div id="loader">
-<h1>AURA<span>WEAR</span></h1>
-<div class="loader-line"></div>
-</div>
-
 <header>
-<a class="logo" href="#">AURA<span>WEAR</span></a>
-<nav>
-<a href="#">HOME</a>
-<a href="#shop">SHOP</a>
-</nav>
-<button class="cart-button" onclick="openCart()">BAG <span id="cart-count">0</span></button>
+ <div class="logo">AURA<span>WEAR</span></div>
+ <nav>
+  <a href="#drop">DROP</a>
+  <a href="#about">ABOUT</a>
+ </nav>
 </header>
 
-<section class="hero">
-<div class="hero-content">
-<div class="eyebrow">THE STREETWEAR EXPERIENCE</div>
-<h1>OWN YOUR<br><span>IDENTITY.</span></h1>
-<p>Not made to fit in. Made to stand out. Discover the first AURAWEAR collection.</p>
-<a href="#shop" class="primary-btn">EXPLORE COLLECTION ↗</a>
-</div>
+<section class="hero" id="drop">
+
+ <div class="hero-text">
+  <div class="tag">THE NEW STREETWEAR ERA</div>
+
+  <h1>
+   MOVE<br>
+   <span>DIFFERENT.</span>
+  </h1>
+
+  <p class="description">
+   Not made to blend in.
+   Built for those who create their own identity.
+   Welcome to AURAWEAR.
+  </p>
+
+  <a href="#about" class="btn">EXPLORE AURA ↗</a>
+ </div>
+
+ <div class="visual" id="visual">
+  <div class="orbit"></div>
+
+  <div class="hoodie" id="hoodie">
+   <!-- Replace hoodie.jpg with your actual hoodie photo -->
+   <img src="hoodie.jpg"
+        alt="AURAWEAR First Hoodie"
+        onerror="this.style.display='none';document.getElementById('placeholder').style.display='flex'">
+
+   <div class="placeholder" id="placeholder" style="display:none">
+    AURA
+   </div>
+  </div>
+ </div>
+
 </section>
 
-<section class="collection" id="shop">
-<div class="section-top">
-<small>THE FIRST DROP</small>
-<h2>FEATURED COLLECTION</h2>
-<p>INTRODUCING AURAWEAR ORIGINALS</p>
+<div class="marquee">
+ <span>
+ AURAWEAR ✦ BUILT DIFFERENT ✦ FIRST DROP COMING SOON ✦
+ AURAWEAR ✦ BUILT DIFFERENT ✦ FIRST DROP COMING SOON ✦
+ </span>
 </div>
 
-<div class="product-grid">
-<div class="product-card">
-<div class="product-image">
-<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900" alt="Streetwear hoodie">
-</div>
-<div class="product-info">
-<small>AURAWEAR ORIGINALS</small>
-<h3>SPIDER ZIP HOODIE</h3>
-<div class="price">Rs. 3,500</div>
-<select id="size">
-<option value="">SELECT SIZE</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-</select>
-<button class="add-btn" onclick="addToCart()">ADD TO CART +</button>
-</div>
-</div>
-</div>
-</section>
-
-<section class="brand-strip">
-<h2>AURAWEAR</h2>
-<p>WEAR YOUR IDENTITY · DEFINE YOUR AURA</p>
+<section class="about" id="about">
+ <div class="tag">THE AURA</div>
+ <h2>OWN YOUR FREQUENCY.</h2>
+ <p>
+ AURAWEAR is more than clothing.
+ It's a mindset. Bold energy, unique identity
+ and a new generation of streetwear.
+ <br><br>
+ FIRST DROP — COMING SOON.
+ </p>
 </section>
 
 <footer>
-<h2>AURA<span>WEAR</span></h2>
-<p>PREMIUM STREETWEAR · EST. 2026</p>
-<p>© AURAWEAR. ALL RIGHTS RESERVED.</p>
+ <span>© 2026 AURAWEAR</span>
+ <span>MADE TO STAND OUT.</span>
 </footer>
 
-<!-- CART -->
-<div class="overlay" id="cart">
-<div class="drawer">
-<div class="drawer-head">
-<h2>YOUR BAG</h2>
-<button class="close" onclick="closeCart()">×</button>
-</div>
-<div id="cart-items"><p class="empty">Your bag is empty.</p></div>
-<div class="cart-total"><span>TOTAL</span><span id="total">Rs. 0</span></div>
-<button class="checkout-btn" onclick="openCheckout()">PROCEED TO CHECKOUT</button>
-</div>
-</div>
-
-<!-- CHECKOUT -->
-<div class="modal" id="checkout">
-<div class="modal-box">
-<h2>CHECKOUT</h2>
-<p id="checkout-summary" style="font-size:13px;color:#aaa;margin-bottom:15px"></p>
-<input id="customer-name" placeholder="Your name">
-<input id="customer-phone" placeholder="Your phone number">
-<input id="customer-address" placeholder="Delivery address">
-<button onclick="sendOrder()">ORDER ON WHATSAPP</button>
-<button class="cancel" onclick="closeCheckout()">CANCEL</button>
-</div>
-</div>
-
 <script>
-// Add your WhatsApp number with country code, without + sign.
-const WHATSAPP_NUMBER = "92XXXXXXXXXX";
-const PRICE = 3500;
-let cart = [];
+const visual=document.getElementById("visual");
+const hoodie=document.getElementById("hoodie");
 
-window.addEventListener("load",()=>{
-setTimeout(()=>document.getElementById("loader").classList.add("hide"),1200);
+visual.addEventListener("pointermove",e=>{
+ const rect=visual.getBoundingClientRect();
+ const x=(e.clientX-rect.left)/rect.width-.5;
+ const y=(e.clientY-rect.top)/rect.height-.5;
+
+ hoodie.style.transform=
+ `rotateY(${-x*22}deg) rotateX(${y*15}deg)`;
 });
 
-function addToCart(){
-const size=document.getElementById("size").value;
-if(!size){alert("Please select your size.");return;}
-cart.push({name:"Spider Zip Hoodie",size:size,price:PRICE});
-document.getElementById("size").value="";
-updateCart();
-openCart();
-}
+visual.addEventListener("pointerleave",()=>{
+ hoodie.style.transform="rotateY(0) rotateX(0)";
+});
 
-function updateCart(){
-document.getElementById("cart-count").textContent=cart.length;
-document.getElementById("total").textContent="Rs. "+(cart.length*PRICE).toLocaleString("en-PK");
-const area=document.getElementById("cart-items");
-if(!cart.length){area.innerHTML='<p class="empty">Your bag is empty.</p>';return;}
-area.innerHTML=cart.map((item,i)=>`
-<div class="cart-item">
-<strong>${item.name}</strong><br>
-Size: ${item.size} · Rs. ${item.price.toLocaleString("en-PK")}
-<button onclick="removeItem(${i})">REMOVE</button>
-</div>`).join("");
-}
+window.addEventListener("deviceorientation",e=>{
+ if(e.gamma===null)return;
 
-function removeItem(i){cart.splice(i,1);updateCart();}
-function openCart(){document.getElementById("cart").classList.add("show");}
-function closeCart(){document.getElementById("cart").classList.remove("show");}
-function openCheckout(){
-if(!cart.length){alert("Your bag is empty.");return;}
-document.getElementById("checkout-summary").textContent=
-cart.length+" item(s) · Total Rs. "+(cart.length*PRICE).toLocaleString("en-PK");
-closeCart();
-document.getElementById("checkout").classList.add("show");
-}
-function closeCheckout(){document.getElementById("checkout").classList.remove("show");}
+ const x=Math.max(-25,Math.min(25,e.gamma));
 
-function sendOrder(){
-const name=document.getElementById("customer-name").value.trim();
-const phone=document.getElementById("customer-phone").value.trim();
-const address=document.getElementById("customer-address").value.trim();
-if(!name||!phone||!address){alert("Please complete all checkout fields.");return;}
-if(WHATSAPP_NUMBER.includes("X")){
-alert("WhatsApp number abhi website code mein add nahi hua. Number add karne ke baad orders receive honge.");
-return;
-}
-let lines=cart.map(x=>x.name+" - Size "+x.size+" - Rs. "+x.price).join("\n");
-let message="AURAWEAR ORDER\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\n\n"+lines+"\nTotal: Rs. "+(cart.length*PRICE);
-window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
-}
+ hoodie.style.transform=`rotateY(${-x*.7}deg)`;
+});
 </script>
+
 </body>
 </html>
